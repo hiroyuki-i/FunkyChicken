@@ -1,4 +1,4 @@
-FunkyChicken
-============
+trial2d-unity
+=============
 
-The simple game of Unity
+This is a trial game project of the Unity.
