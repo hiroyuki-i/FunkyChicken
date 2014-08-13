@@ -13,7 +13,6 @@ function Update(){
 
 function addScore (i : int) {
 	score = score + i;
-	//scoreGUI.text = "Score : " + score.ToString();
 }
 
 function clearScore(){
