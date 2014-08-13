@@ -1,4 +1,7 @@
-trial2d-unity
+FunkyChicken
 =============
 
-This is a trial game project of the Unity.
+This is a simple game project of the Unity.
+
+branch "master" is for WebPlayer,
+and "mobile" is for the app build.
