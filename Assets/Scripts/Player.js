@@ -5,6 +5,9 @@ var speed : float = 8;
 var playerDead : GameObject;
 private var adjustPlayerPosition : float = 0.7;
 
+function Start(){
+}
+
 function Update () {
 	
 	//move to right and left
