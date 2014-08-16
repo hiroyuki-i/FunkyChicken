@@ -5,16 +5,28 @@ var speed : float = 8;
 var playerDead : GameObject;
 private var adjustPlayerPosition : float = 0.7;
 
-function Start(){
-}
-
 function Update () {
-	
 	//move to right and left
 	var x = Input.GetAxisRaw("Horizontal");
+	playerPositioning(x);
+}
+
+function touchMove(x : int){
+	playerPositioning(x);
+}
+
+function playerPositioning(x : float){
+
+	//move to right and left
 	var direction = new Vector2(x , 0).normalized;
 	rigidbody2D.velocity = direction * speed;
-	
+
+	var min = Camera.main.ViewportToWorldPoint(new Vector2(0,0));
+	var max = Camera.main.ViewportToWorldPoint(new Vector2(1,1));
+	var pos = transform.position;
+	pos.x = Mathf.Clamp(pos.x, min.x + adjustPlayerPosition, max.x - adjustPlayerPosition);
+	transform.position = pos;
+
 	//change the animation
 	if((isRight && x < 0)){
 		isRight = false;
@@ -24,12 +36,6 @@ function Update () {
 		isRight = true;
 		transform.localScale.x = 1;
 	}
-	
-	var min = Camera.main.ViewportToWorldPoint(new Vector2(0,0));
-	var max = Camera.main.ViewportToWorldPoint(new Vector2(1,1));
-	var pos = transform.position;
-	pos.x = Mathf.Clamp(pos.x, min.x + adjustPlayerPosition, max.x - adjustPlayerPosition);
-	transform.position = pos;
 }
 
 function OnTriggerEnter2D(c : Collider2D){

@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ArrowController.js" />
+     <Compile Include="Assets\Scripts\Arrows.js" />
      <Compile Include="Assets\Scripts\DestroyArea.js" />
      <Compile Include="Assets\Scripts\Niwatori.js" />
      <Compile Include="Assets\Scripts\Player.js" />
@@ -53,7 +55,6 @@
      <Compile Include="Assets\Scripts\Score.js" />
      <Compile Include="Assets\Scripts\StageManager.js" />
      <Compile Include="Assets\Scripts\Throwing.js" />
-     <None Include="Assets\Sample Assets\Cross Platform Input\Cross Platform Input Guidelines.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

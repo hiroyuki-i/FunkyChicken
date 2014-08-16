@@ -1,12 +1,18 @@
-﻿#pragma strict
+#pragma strict
 
 var player : GameObject;
+var arrows : GameObject;
 private var title : GameObject;
 private var score : Score;
 
 function Start(){
 	title = GameObject.Find("Title");
 	score = FindObjectOfType(Score);
+	
+	#if UNITY_IPHONE || UNITY_ANDROID
+	arrows = Instantiate(arrows,arrows.transform.position,arrows.transform.rotation);
+	arrows.SetActive(false);
+	#endif
 }
 
 function Update () {
@@ -25,10 +31,18 @@ function GameStart(){
 	title.SetActive(false);
 	Instantiate (player, player.transform.position, player.transform.rotation);
 	score.clearScore();
+	
+	#if UNITY_IPHONE || UNITY_ANDROID
+		arrows.SetActive(true);
+	#endif
 }
 
 function GameOver(){
 	title.SetActive(true);
+	
+	#if UNITY_IPHONE || UNITY_ANDROID
+		arrows.SetActive(false);
+	#endif
 }
 
 function IsPlaying(){
