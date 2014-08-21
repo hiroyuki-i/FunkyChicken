@@ -4,15 +4,12 @@ var player : GameObject;
 var arrows : GameObject;
 private var title : GameObject;
 private var score : Score;
+private var touchController : TouchController;
 
 function Start(){
 	title = GameObject.Find("Title");
 	score = FindObjectOfType(Score);
-	
-	#if UNITY_IPHONE || UNITY_ANDROID
-	arrows = Instantiate(arrows,arrows.transform.position,arrows.transform.rotation);
-	arrows.SetActive(false);
-	#endif
+	touchController = FindObjectOfType(TouchController);
 }
 
 function Update () {
@@ -33,7 +30,10 @@ function GameStart(){
 	score.clearScore();
 	
 	#if UNITY_IPHONE || UNITY_ANDROID
+		arrows = Resources.Load("Arrows");
+		arrows = Instantiate(arrows,arrows.transform.position,arrows.transform.rotation);
 		arrows.SetActive(true);
+		touchController.init();
 	#endif
 }
 
@@ -41,7 +41,7 @@ function GameOver(){
 	title.SetActive(true);
 	
 	#if UNITY_IPHONE || UNITY_ANDROID
-		arrows.SetActive(false);
+		Destroy(arrows.gameObject);
 	#endif
 }
 
