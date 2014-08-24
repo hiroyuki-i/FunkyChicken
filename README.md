@@ -5,7 +5,7 @@ This is a simple game project of the Unity.
 
 ###SampleView
 UnityWebPlayer for PC  
-https://dl.dropboxusercontent.com/u/61985110/root/root.html
+http://unity.psalm.me/funkychicken/
 
 
 スタート : クリック or Enter  
